@@ -9,28 +9,29 @@ export class CaseAccordionComponent implements OnInit {
 
   @Input() case: string;
   @Input() status: string;
+  @Input() testSteps: any;
 
-  testSteps: any;
+  statusIcon: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.testSteps = [
-      {
-        status: 'waiting',
-        step: 'I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot.',
-        desiredOutput: 'I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. '
-      },
-      {
-        status: 'error',
-        step: 'I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot.',
-        desiredOutput: 'I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. '
-      },
-      {
-        status: 'done',
-        step: 'I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot.',
-        desiredOutput: 'I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. '
-      }
-    ];
+    this.initializeStatus();
+  }
+
+  initializeStatus() {
+    switch (this.status) {
+      case 'waiting':
+        this.statusIcon = 'warning';
+        break;
+      case 'error':
+        this.statusIcon = 'error';
+        break;
+      case 'done':
+        this.statusIcon = 'check';
+        break;
+      default:
+        this.statusIcon = 'device_unknown';
+    }
   }
 }
