@@ -1,0 +1,19 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{case}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{status}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <div *ngFor="let testStep of testSteps">
+    <app-step-card 
+      [status]="testStep.status"
+      [step]="testStep.step" 
+      [desiredOutput]="testStep.desiredOutput"></app-step-card>
+  </div>
+  
+
+</mat-expansion-panel>

@@ -1,0 +1,17 @@
+.header-container{
+    display: grid;
+    grid-template-columns: auto 16px 1fr;
+    grid-template-rows: 1fr;
+
+    .toggle-container{
+        grid-row: 1 /span 1;
+        grid-column: 1 /span 1;
+        height: 50px;
+        margin: auto;
+    }
+
+    .step-container{
+        grid-row: 1 /span 1;
+        grid-column: 3 /span 1;
+    }
+}
